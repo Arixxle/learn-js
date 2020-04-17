@@ -1,0 +1,10 @@
+.hide{
+  display: none;
+}
+
+.large{
+  font-size: 50px;
+  color: #fcc;
+  text-decoration: line-through;
+}
+
