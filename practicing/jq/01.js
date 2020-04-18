@@ -9,15 +9,6 @@ $(document).ready(function(){
     } else {
       $('#pic-box').append(`<img src="${path}" alt="" class="w-50 img-o p-2">`).fadeIn()
     }
-    // $('#pic-box').append(`<img src="${path}${n}" alt="" class="w-50 img-o p-2">`).fadeIn()
-
-    // $('#pic-box').on('mouseover','img',function(){
-    //   $(this).fadeIn()      
-    // })
-
-    // $('img').on('mouseover',function(){
-    //   $(this).fadeOut()      
-    // })
   })
   $('.btn-rm').on('click', function(){
     event.stopPropagation();
