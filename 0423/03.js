@@ -9,8 +9,6 @@ $(document).ready(() => {
         // let posts = resp.data
         // console.log(posts.map(post => toPostHtml(post)));
         // $('.container').append(posts.map(post => toPostHtml(post)));
-        console.log(resp.data.map(toPostHtml));
-
 
         $('.container').append(resp.data.map(toPostHtml));
        })
