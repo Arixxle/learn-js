@@ -40,6 +40,7 @@ body .quote-input{
   padding-bottom: 1rem;
   margin-left: calc(1rem + 2px);
   margin-right: calc(1rem + 2px);
+  font-size: 2rem;
   /* 要讓display的開頭對齊輸入框內文字開頭 */
 }
 
@@ -53,7 +54,7 @@ body .quote-input{
   margin: auto;
   resize: none;
   padding: .5rem 1rem;
-  font-size: 1rem;
+  font-size: 2rem;
   color: rgb(179, 179, 179);
   /* border-width: 0px; */
   /* color: transparent; */
@@ -62,7 +63,10 @@ body .quote-input{
 .quote-input:focus{
   border-color: rgb(239, 252, 255);
 }
-
+.selected{
+  text-decoration: underline;
+  background-color: rgb(117, 117, 117);
+}
 .correct{
   color: rgb(93, 192, 0);
   background-color: rgb(208, 238, 180);
