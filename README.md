@@ -4,3 +4,4 @@
 - [JS 30 challenge-Day 02](https://arixxle.github.io/learn-js/practicing/js_30/day02/day02.html)
 - [JS 30 challenge-Day 03](https://arixxle.github.io/learn-js/practicing/js_30/day03/day03.html)
 - [JS 30 challenge-Day 05](https://arixxle.github.io/learn-js/practicing/js_30/day05/day05.html)
+- [Domo Test V1](https://arixxle.github.io/learn-js/practicing/demotestV1/index.html)
