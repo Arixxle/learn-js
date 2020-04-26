@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+ctx.strokeStyle = '#BADA55'; //畫筆顏色
+ctx.lineJoin = 'round'; //兩條線相交時的轉角類型
+ctx.lineCap = 'round';//起始與結束點的類型
+ctx.lineWidth = 50;
+// ctx.globalCompositeOperation = 'multiply';
+
+let isDrawing = false;//後面要做滑鼠點下才繪製會用到
+let lastX = 0;//後面要用來記錄滑鼠起始/結束的位置點會用到
+let lastY = 0;//後面要用來記錄滑鼠起始/結束的位置點會用到
+let hue = 0;//色相
+let direction = true;
+
+function draw(e) {
+  if (!isDrawing) return; //stop the fn from running when they are not moused
+  // console.log(e);
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+  ctx.beginPath();//產生一個新路徑，產生後再使用繪圖指令來設定路徑。//start from
+  ctx.moveTo(lastX, lastY);//移動畫筆到指定的(x, y)座標點 //go to
+  ctx.lineTo(e.offsetX, e.offsetY);//從目前繪圖點畫一條直線到指定的(x, y)座標點。
+  ctx.stroke();//畫
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+  hue++;
+  if (hue >= 360) {
+    hue = 0;
+  }
+
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction
+  }
+  if (direction) {
+    ctx.lineWidth++;
+  } else {
+    ctx.lineWidth--; 
+  }
+}
+
+
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mousemove', draw);//要怎麼判定要監聽什麼?
+
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
+
+
+</script>
+
+<style>
+  html, body {
+    margin: 0;
+  }
+</style>
+
+</body>
+</html>
