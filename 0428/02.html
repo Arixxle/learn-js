@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <form action="#">
+            <div class="field">
+              <label class="label">Username</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="userName" type="text" placeholder="Text input" value="">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="email" type="email" placeholder="Email input" value="">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+                <input class="input" name="password" type="password">
+              </div>
+            </div>
+  
+  
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" name="agree">
+                  I agree to the <a href="#">terms and conditions</a>
+                </label>
+              </div>
+            </div>
+  
+  
+            <div class="field is-grouped">
+              <div class="control">
+                <input type="submit" value=" Submit" class="button is-link">
+                                                           </div>
+            </div>        
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</body>
+
+<script>
+  let submit = document.querySelector('.is-link');
+  let checkBox = document.getElementsByName('agree')[0];
+  let agree = false;
+
+  checkBox.addEventListener('change', function(){
+      agree = true;
+
+    })
+
+  submit.addEventListener('click', function(e){
+    e.preventDefault();//阻止原生事件
+    e.stopPropagation();//停止冒泡
+    let userName = document.forms[0].userName;
+    let email = document.forms[0].email;
+    let password = document.forms[0].password;
+    let result = {userName: userName.value, email: email.value, password: password.value, agree: agree}
+    console.log(result);
+  });
+</script>
+
+</html>

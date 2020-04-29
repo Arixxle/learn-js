@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .clock{
+      display: flex;
+    }
+    .sec{
+      font-size: 50px;
+      font-weight: bold;
+      color: rgb(39, 79, 124);
+    }
+
+    .millisec{
+      font-size: 50px;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="sec" id="sec">0</div>
+    <div class="sec">Sec</div>
+    <div class="millisec" id="millisec">0</div>
+    <!-- <div class="millisec">Sec</div> -->
+
+  </div>
+
+</body>
+
+<script>
+
+const secElement = document.getElementById('sec')
+const millisecElement = document.getElementById('millisec')
+let myInterval;
+
+  window.addEventListener('click', () => {
+    clearInterval(myInterval);
+    secElement.innerText = '0'
+    millisecElement.innerText = '0'
+    myInterval = setInterval(() => { 
+      secElement.innerText = getTimeSec()
+      millisecElement.innerText = getTimeMillisec()
+    // timer.innerText = getTimerTime() //為什麼這行timer也抓得到timerElement?
+    }, 10)
+  })
+
+  function getTimeSec() {
+    let seconds = new Date().getSeconds()
+    return seconds;
+  }
+
+  function getTimeMillisec() {
+    let milliseconds = new Date().getMilliseconds()
+    // console.log(milliseconds);
+    return milliseconds;
+  }
+
+</script>
+
+</html>
